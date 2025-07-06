@@ -1,0 +1,15 @@
+﻿# Ignora arquivos e pastas do Visual Studio
+.vs/
+*.user
+*.suo
+*.Cache
+*.log
+*.tmp
+
+# Ignora arquivos temporários
+*.vsidx
+*.dbmdl
+
+# Ignora bin e obj
+bin/
+obj/
