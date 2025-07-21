@@ -33,8 +33,9 @@ namespace GUI
 
                 MessageBox.Show("plataforma cadastrada com sucesso!");
                 txtNome.Clear();
+                CarregarPlataformas();
             }
-            catch(Exception ex) 
+            catch (Exception ex) 
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
@@ -54,6 +55,25 @@ namespace GUI
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close(); //Fecha form atual
+        }
+
+        private void frmCadastroPlataforma_Load(object sender, EventArgs e)
+        {
+            CarregarPlataformas();
+        }
+
+        private void CarregarPlataformas()
+        {
+            try
+            {
+                Conexao conn = new Conexao();
+                BLLPlataforma bll = new BLLPlataforma(conn);
+                dgvPlataformas.DataSource = bll.ListarTodas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar plataformas: " + ex.Message);
+            }
         }
     }
 }

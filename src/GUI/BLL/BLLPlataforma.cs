@@ -2,9 +2,11 @@
 using GUI.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GUI.BLL
 {
@@ -31,6 +33,12 @@ namespace GUI.BLL
             // Cria objeto da DAL e chama o método de inserir
             DALPlataforma dal = new DALPlataforma(_conexao);
             dal.Inserir(modelo);
+        }
+
+        public DataTable ListarTodas()
+        {
+            DALPlataforma dal = new DALPlataforma(_conexao);
+            return dal.ListarTodas();
         }
     }
 }

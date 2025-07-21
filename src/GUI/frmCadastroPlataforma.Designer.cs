@@ -36,13 +36,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.dgvPlataformas = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlataformas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel1.Controls.Add(this.dgvPlataformas);
             this.panel1.Controls.Add(this.btnFechar);
             this.panel1.Controls.Add(this.btnLimpar);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -133,6 +136,17 @@
             this.btnFechar.UseVisualStyleBackColor = false;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // dgvPlataformas
+            // 
+            this.dgvPlataformas.AllowUserToAddRows = false;
+            this.dgvPlataformas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPlataformas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlataformas.Location = new System.Drawing.Point(28, 175);
+            this.dgvPlataformas.Name = "dgvPlataformas";
+            this.dgvPlataformas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPlataformas.Size = new System.Drawing.Size(734, 231);
+            this.dgvPlataformas.TabIndex = 7;
+            // 
             // frmCadastroPlataforma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,9 +157,11 @@
             this.Name = "frmCadastroPlataforma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroPlataforma";
+            this.Load += new System.EventHandler(this.frmCadastroPlataforma_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlataformas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,5 +176,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.DataGridView dgvPlataformas;
     }
 }

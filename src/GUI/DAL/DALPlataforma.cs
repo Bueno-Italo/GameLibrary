@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GUI.DAL;
+using System.Data;
+using GUI.BLL;
 
 namespace GUI.DAL
 {
@@ -31,6 +33,19 @@ namespace GUI.DAL
             _conexao.AbrirConexao();
             cmd.ExecuteNonQuery();
             _conexao.FecharConexao();
+        }
+
+        public DataTable ListarTodas()
+        {
+            DataTable tabela = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conexao.ObterConexao();
+            //_conexao.AbrirConexao();
+            cmd.CommandText = "SELECT * FROM plataforma";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabela);
+            _conexao.FecharConexao();
+            return tabela;
         }
     }
 }
