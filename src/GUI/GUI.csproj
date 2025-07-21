@@ -50,6 +50,12 @@
     <Compile Include="BLL\BLLPlataforma.cs" />
     <Compile Include="DAL\Conexao.cs" />
     <Compile Include="DAL\DALPlataforma.cs" />
+    <Compile Include="frmPlataformaAdvanced.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlataformaAdvanced.Designer.cs">
+      <DependentUpon>frmPlataformaAdvanced.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\frmCadastroPlataforma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="Modelo\Plataforma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmPlataformaAdvanced.resx">
+      <DependentUpon>frmPlataformaAdvanced.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modelo\frmCadastroPlataforma.resx">
       <DependentUpon>frmCadastroPlataforma.cs</DependentUpon>
     </EmbeddedResource>
