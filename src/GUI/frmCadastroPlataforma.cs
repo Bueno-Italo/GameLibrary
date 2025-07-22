@@ -60,8 +60,9 @@ namespace GUI
         private void frmCadastroPlataforma_Load(object sender, EventArgs e)
         {
             CarregarPlataformas();
-        }
+            dgvPlataformas.CellClick += new DataGridViewCellEventHandler(dgvPlataformas_CellContentClick);
 
+        }
         private void CarregarPlataformas()
         {
             try
@@ -73,6 +74,41 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar plataformas: " + ex.Message);
+            }
+        }
+
+        private void dgvPlataformas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvPlataformas.Rows[e.RowIndex];
+
+                txtId.Text = row.Cells["Id"].Value.ToString();
+                txtNome.Text = row.Cells["Nome"].Value.ToString();
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    MessageBox.Show("Selecione uma plataforma para alterar.");
+                    return;
+                }
+
+                Plataforma modelo = new Plataforma();
+                modelo.Id = int.Parse(txtId.Text);
+                modelo.Nome = txtNome.Text.Trim();
+
+                Conexao conn = new Conexao();
+                BLLPlataforma bll = new BLLPlataforma(conn);
+                bll.Alterar(modelo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar plataforma: " + ex.Message);
             }
         }
     }

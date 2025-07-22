@@ -47,5 +47,18 @@ namespace GUI.DAL
             _conexao.FecharConexao();
             return tabela;
         }
+
+        public void Alterar(Plataforma modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conexao.ObterConexao();
+            cmd.CommandText = "UPDATE Plataforma SET Nome = @nome WHERE Id = @id";
+            cmd.Parameters.AddWithValue("@nome", modelo.Nome);
+            cmd.Parameters.AddWithValue("@id", modelo.Id);
+
+            _conexao.AbrirConexao();
+            cmd.ExecuteNonQuery();
+            _conexao.FecharConexao();
+        }
     }
 }

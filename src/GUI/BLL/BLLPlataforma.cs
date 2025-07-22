@@ -40,5 +40,18 @@ namespace GUI.BLL
             DALPlataforma dal = new DALPlataforma(_conexao);
             return dal.ListarTodas();
         }
+
+        public void Alterar(Plataforma modelo)
+        {
+            if (modelo.Id <= 0)
+                throw new Exception("ID inválido para alteração.");
+
+            if (string.IsNullOrWhiteSpace(modelo.Nome))
+                throw new Exception("O nome da plataforma é obrigatório.");
+
+            DALPlataforma dal = new DALPlataforma(_conexao);
+            dal.Alterar(modelo);
+        }
+
     }
 }
