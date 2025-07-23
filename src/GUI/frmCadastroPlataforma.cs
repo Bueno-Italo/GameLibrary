@@ -117,5 +117,16 @@ namespace GUI
                 MessageBox.Show("Erro ao alterar plataforma: " + ex.Message);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           //pictureBox1.Image = Image.FromFile("Resources/joystick.png");
+            //pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
