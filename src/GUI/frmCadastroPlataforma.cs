@@ -105,6 +105,12 @@ namespace GUI
                 Conexao conn = new Conexao();
                 BLLPlataforma bll = new BLLPlataforma(conn);
                 bll.Alterar(modelo);
+
+                CarregarPlataformas();
+
+                txtId.Clear();
+                txtNome.Clear();
+                txtNome.Focus();
             }
             catch (Exception ex)
             {
