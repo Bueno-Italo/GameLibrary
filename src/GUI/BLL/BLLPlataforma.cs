@@ -53,5 +53,14 @@ namespace GUI.BLL
             dal.Alterar(modelo);
         }
 
+        public void Excluir(int id)
+        {
+            if (id <= 0)
+                throw new Exception("ID inválido para exclusão.");
+
+            DALPlataforma dal = new DALPlataforma(_conexao);
+            dal.Excluir(id);
+        }
+
     }
 }

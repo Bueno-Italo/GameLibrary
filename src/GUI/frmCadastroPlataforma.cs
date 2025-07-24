@@ -128,5 +128,43 @@ namespace GUI
         {
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtId.Text))
+                {
+                    MessageBox.Show("Selecione uma plataforma para excluir.");
+                    return;
+                }
+
+                DialogResult confirm = MessageBox.Show(
+                    "Tem certeza que deseja excluir esta plataforma?",
+                    "Confirmação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                    );
+
+                if (confirm == DialogResult.Yes)
+                {
+                    Plataforma modelo = new Plataforma();
+                    modelo.Id = int.Parse(txtId.Text);
+
+                    Conexao conn = new Conexao();
+                    BLLPlataforma bll = new BLLPlataforma(conn);
+                    bll.Excluir(modelo.Id);
+                    MessageBox.Show("Plataforma excluída com sucesso!");
+                    txtId.Clear();
+                    txtNome.Clear();
+                    CarregarPlataformas();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir plataforma: " + ex.Message);
+            }
+        }
     }
 }

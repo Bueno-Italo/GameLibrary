@@ -60,5 +60,17 @@ namespace GUI.DAL
             cmd.ExecuteNonQuery();
             _conexao.FecharConexao();
         }
+
+        public void Excluir(int id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conexao.ObterConexao();
+            cmd.CommandText = "DELETE FROM Plataforma WHERE Id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            _conexao.AbrirConexao();
+            cmd.ExecuteNonQuery();
+            _conexao.FecharConexao();
+        }
     }
 }
