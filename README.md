@@ -38,6 +38,18 @@ Aprender versionamento no GitHub
 
 ---
 
+## 💾 Banco de Dados
+Banco de dados local (SQL Server Express).
+
+Tabela utilizada: Plataforma
+
+CREATE TABLE Plataforma (
+    Id INT IDENTITY PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL
+);
+
+---
+
 ## 🚀 Como rodar
 1. Clone o repositório
 git clone https://github.com/Bueno-Italo/GameLibrary.git
@@ -50,6 +62,8 @@ git clone https://github.com/Bueno-Italo/GameLibrary.git
 4. Execute o script SQL
 
 5. Rode o projeto 🎉
+
+---
 
 ## 👨‍💻 Autor
 Feito por Italo Bueno
