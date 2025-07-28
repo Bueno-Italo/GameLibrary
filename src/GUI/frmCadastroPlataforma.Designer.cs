@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroPlataforma));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.dgvPlataformas = new System.Windows.Forms.DataGridView();
@@ -40,7 +41,8 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnExcluir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlataformas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,6 +51,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel1.Controls.Add(this.txtPesquisar);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.txtId);
@@ -66,12 +70,25 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(392, 158);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(106, 32);
+            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.Text = "🗑️ Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAlterar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(149, 125);
+            this.btnAlterar.Location = new System.Drawing.Point(149, 160);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(106, 32);
             this.btnAlterar.TabIndex = 9;
@@ -94,12 +111,12 @@
             this.dgvPlataformas.AllowUserToDeleteRows = false;
             this.dgvPlataformas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPlataformas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlataformas.Location = new System.Drawing.Point(3, 174);
+            this.dgvPlataformas.Location = new System.Drawing.Point(3, 198);
             this.dgvPlataformas.MultiSelect = false;
             this.dgvPlataformas.Name = "dgvPlataformas";
             this.dgvPlataformas.ReadOnly = true;
             this.dgvPlataformas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlataformas.Size = new System.Drawing.Size(734, 231);
+            this.dgvPlataformas.Size = new System.Drawing.Size(734, 207);
             this.dgvPlataformas.TabIndex = 7;
             this.dgvPlataformas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlataformas_CellContentClick);
             // 
@@ -108,7 +125,7 @@
             this.btnFechar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(631, 126);
+            this.btnFechar.Location = new System.Drawing.Point(518, 158);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(106, 32);
             this.btnFechar.TabIndex = 6;
@@ -121,9 +138,9 @@
             this.btnLimpar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(271, 126);
+            this.btnLimpar.Location = new System.Drawing.Point(270, 159);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(106, 32);
+            this.btnLimpar.Size = new System.Drawing.Size(106, 33);
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "🧹 Limpar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +164,7 @@
             this.btnSalvar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(28, 125);
+            this.btnSalvar.Location = new System.Drawing.Point(28, 160);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(106, 32);
             this.btnSalvar.TabIndex = 3;
@@ -185,18 +202,24 @@
             this.lblTitulo.Text = "Cadastro de Plataforma";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnExcluir
+            // label1
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(391, 125);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(106, 32);
-            this.btnExcluir.TabIndex = 10;
-            this.btnExcluir.Text = "🗑️ Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(25, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Pesquisar Plataforma:";
+            // 
+            // txtPesquisar
+            // 
+            this.txtPesquisar.Location = new System.Drawing.Point(202, 127);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(212, 20);
+            this.txtPesquisar.TabIndex = 12;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // frmCadastroPlataforma
             // 
@@ -231,5 +254,7 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtPesquisar;
+        private System.Windows.Forms.Label label1;
     }
 }

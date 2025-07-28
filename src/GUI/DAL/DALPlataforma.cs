@@ -72,5 +72,21 @@ namespace GUI.DAL
             cmd.ExecuteNonQuery();
             _conexao.FecharConexao();
         }
+
+        public DataTable PesquisarPorNome(string nome)
+        {
+            DataTable tabela = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conexao.ObterConexao();
+
+            cmd.CommandText = "SELECT * FROM Plataforma WHERE Nome LIKE @nome";
+            cmd.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabela);
+            _conexao.FecharConexao();
+
+            return tabela;
+        }
     }
 }

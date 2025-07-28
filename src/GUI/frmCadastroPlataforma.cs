@@ -166,5 +166,22 @@ namespace GUI
                 MessageBox.Show("Erro ao excluir plataforma: " + ex.Message);
             }
         }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            string termo = txtPesquisar.Text.Trim();
+
+            Conexao conn = new Conexao();
+            BLLPlataforma bll = new BLLPlataforma(conn);
+
+            if (string.IsNullOrEmpty(termo))
+            {
+                dgvPlataformas.DataSource = bll.ListarTodas();
+            }
+            else
+            {
+                dgvPlataformas.DataSource = bll.PesquisarPorNome(termo);
+            }
+        }
     }
 }

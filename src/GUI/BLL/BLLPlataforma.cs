@@ -62,5 +62,11 @@ namespace GUI.BLL
             dal.Excluir(id);
         }
 
+        public DataTable PesquisarPorNome(string nome)
+        {
+            DALPlataforma dal = new DALPlataforma(_conexao);
+            return dal.PesquisarPorNome(nome);
+        }
+
     }
 }
