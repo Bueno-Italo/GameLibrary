@@ -24,6 +24,13 @@ namespace GUI
         {
             try
             {
+                if(string.IsNullOrWhiteSpace(txtNome.Text))
+                {
+                    MessageBox.Show("O nome da plataforma é obrigatório!", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNome.Focus();
+                    return;
+                }
+
                 Plataforma modelo = new Plataforma();
                 modelo.Nome = txtNome.Text.Trim();
 
@@ -95,6 +102,13 @@ namespace GUI
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
                     MessageBox.Show("Selecione uma plataforma para alterar.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtNome.Text))
+                {
+                    MessageBox.Show("O nome da plataforma não pode estar em branco.", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNome.Focus();
                     return;
                 }
 
