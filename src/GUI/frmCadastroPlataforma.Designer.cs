@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroPlataforma));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlataformas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,6 +69,25 @@
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtPesquisar
+            // 
+            this.txtPesquisar.Location = new System.Drawing.Point(202, 127);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(212, 20);
+            this.txtPesquisar.TabIndex = 12;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(25, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 21);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Pesquisar Plataforma:";
             // 
             // btnExcluir
             // 
@@ -115,6 +134,7 @@
             this.dgvPlataformas.MultiSelect = false;
             this.dgvPlataformas.Name = "dgvPlataformas";
             this.dgvPlataformas.ReadOnly = true;
+            this.dgvPlataformas.RowHeadersVisible = false;
             this.dgvPlataformas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlataformas.Size = new System.Drawing.Size(734, 207);
             this.dgvPlataformas.TabIndex = 7;
@@ -201,25 +221,6 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Cadastro de Plataforma";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 21);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Pesquisar Plataforma:";
-            // 
-            // txtPesquisar
-            // 
-            this.txtPesquisar.Location = new System.Drawing.Point(202, 127);
-            this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(212, 20);
-            this.txtPesquisar.TabIndex = 12;
-            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
             // frmCadastroPlataforma
             // 

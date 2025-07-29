@@ -70,6 +70,7 @@ namespace GUI
             dgvPlataformas.CellClick += new DataGridViewCellEventHandler(dgvPlataformas_CellContentClick);
 
         }
+
         private void CarregarPlataformas()
         {
             try
