@@ -20,7 +20,7 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Altere isso para o nome do seu form principal:
-            Application.Run(new frmCadastroPlataforma());
+            Application.Run(new frmPrincipal());
         }
     }
 }

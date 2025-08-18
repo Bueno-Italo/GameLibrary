@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_DefaultCellStyleChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
