@@ -122,8 +122,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLLJogo.cs" />
     <Compile Include="BLL\BLLPlataforma.cs" />
     <Compile Include="DAL\Conexao.cs" />
+    <Compile Include="DAL\DALJogos.cs" />
     <Compile Include="DAL\DALPlataforma.cs" />
     <Compile Include="frmCadastroPlataforma.cs">
       <SubType>Form</SubType>

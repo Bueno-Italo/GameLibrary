@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnMenuLateral = new System.Windows.Forms.Panel();
+            this.btnConfiguracoes = new System.Windows.Forms.Button();
+            this.btnAdicionarJogo = new System.Windows.Forms.Button();
+            this.btnJogos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnJogos = new System.Windows.Forms.Button();
-            this.btnAdicionarJogo = new System.Windows.Forms.Button();
-            this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.pnlConteudo = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtbuscar = new System.Windows.Forms.TextBox();
-            this.dsgJogos = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.dsgJogos = new System.Windows.Forms.DataGridView();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnMenuLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlConteudo.SuspendLayout();
@@ -60,6 +60,47 @@
             this.pnMenuLateral.Name = "pnMenuLateral";
             this.pnMenuLateral.Size = new System.Drawing.Size(200, 450);
             this.pnMenuLateral.TabIndex = 0;
+            // 
+            // btnConfiguracoes
+            // 
+            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracoes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracoes.ForeColor = System.Drawing.Color.White;
+            this.btnConfiguracoes.Location = new System.Drawing.Point(34, 225);
+            this.btnConfiguracoes.Name = "btnConfiguracoes";
+            this.btnConfiguracoes.Size = new System.Drawing.Size(112, 29);
+            this.btnConfiguracoes.TabIndex = 4;
+            this.btnConfiguracoes.Text = "Configurações";
+            this.btnConfiguracoes.UseVisualStyleBackColor = true;
+            // 
+            // btnAdicionarJogo
+            // 
+            this.btnAdicionarJogo.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdicionarJogo.FlatAppearance.BorderSize = 0;
+            this.btnAdicionarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarJogo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionarJogo.ForeColor = System.Drawing.Color.White;
+            this.btnAdicionarJogo.Location = new System.Drawing.Point(36, 190);
+            this.btnAdicionarJogo.Name = "btnAdicionarJogo";
+            this.btnAdicionarJogo.Size = new System.Drawing.Size(112, 29);
+            this.btnAdicionarJogo.TabIndex = 3;
+            this.btnAdicionarJogo.Text = "Adicionar jogo";
+            this.btnAdicionarJogo.UseVisualStyleBackColor = false;
+            // 
+            // btnJogos
+            // 
+            this.btnJogos.BackColor = System.Drawing.Color.Transparent;
+            this.btnJogos.FlatAppearance.BorderSize = 0;
+            this.btnJogos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJogos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJogos.ForeColor = System.Drawing.Color.White;
+            this.btnJogos.Location = new System.Drawing.Point(34, 155);
+            this.btnJogos.Name = "btnJogos";
+            this.btnJogos.Size = new System.Drawing.Size(112, 29);
+            this.btnJogos.TabIndex = 2;
+            this.btnJogos.Text = "Jogos";
+            this.btnJogos.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -81,47 +122,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnJogos
-            // 
-            this.btnJogos.BackColor = System.Drawing.Color.Transparent;
-            this.btnJogos.FlatAppearance.BorderSize = 0;
-            this.btnJogos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJogos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJogos.ForeColor = System.Drawing.Color.White;
-            this.btnJogos.Location = new System.Drawing.Point(34, 155);
-            this.btnJogos.Name = "btnJogos";
-            this.btnJogos.Size = new System.Drawing.Size(112, 29);
-            this.btnJogos.TabIndex = 2;
-            this.btnJogos.Text = "Jogos";
-            this.btnJogos.UseVisualStyleBackColor = false;
-            // 
-            // btnAdicionarJogo
-            // 
-            this.btnAdicionarJogo.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdicionarJogo.FlatAppearance.BorderSize = 0;
-            this.btnAdicionarJogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionarJogo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionarJogo.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionarJogo.Location = new System.Drawing.Point(36, 190);
-            this.btnAdicionarJogo.Name = "btnAdicionarJogo";
-            this.btnAdicionarJogo.Size = new System.Drawing.Size(112, 29);
-            this.btnAdicionarJogo.TabIndex = 3;
-            this.btnAdicionarJogo.Text = "Adicionar jogo";
-            this.btnAdicionarJogo.UseVisualStyleBackColor = false;
-            // 
-            // btnConfiguracoes
-            // 
-            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracoes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(34, 225);
-            this.btnConfiguracoes.Name = "btnConfiguracoes";
-            this.btnConfiguracoes.Size = new System.Drawing.Size(112, 29);
-            this.btnConfiguracoes.TabIndex = 4;
-            this.btnConfiguracoes.Text = "Configurações";
-            this.btnConfiguracoes.UseVisualStyleBackColor = true;
-            // 
             // pnlConteudo
             // 
             this.pnlConteudo.Controls.Add(this.btnExcluir);
@@ -135,27 +135,33 @@
             this.pnlConteudo.Size = new System.Drawing.Size(600, 450);
             this.pnlConteudo.TabIndex = 1;
             // 
-            // label2
+            // btnExcluir
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Jogos";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.btnExcluir.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExcluir.FlatAppearance.BorderSize = 0;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(484, 405);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(89, 27);
+            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
             // 
-            // txtbuscar
+            // btnEditar
             // 
-            this.txtbuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbuscar.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtbuscar.Location = new System.Drawing.Point(15, 59);
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(573, 20);
-            this.txtbuscar.TabIndex = 1;
-            this.txtbuscar.Text = "Search...";
+            this.btnEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(375, 405);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(89, 27);
+            this.btnEditar.TabIndex = 3;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // dsgJogos
             // 
@@ -177,33 +183,28 @@
             this.dsgJogos.TabIndex = 2;
             this.dsgJogos.DefaultCellStyleChanged += new System.EventHandler(this.dataGridView1_DefaultCellStyleChanged);
             // 
-            // btnEditar
+            // txtbuscar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(375, 405);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(89, 27);
-            this.btnEditar.TabIndex = 3;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
+            this.txtbuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbuscar.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtbuscar.Location = new System.Drawing.Point(15, 59);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.Size = new System.Drawing.Size(573, 20);
+            this.txtbuscar.TabIndex = 1;
+            this.txtbuscar.Text = "Search...";
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
-            // btnExcluir
+            // label2
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.Firebrick;
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(484, 405);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(89, 27);
-            this.btnExcluir.TabIndex = 4;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Jogos";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // frmPrincipal
             // 
@@ -218,6 +219,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameLibrary";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.pnMenuLateral.ResumeLayout(false);
             this.pnMenuLateral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -1,5 +1,6 @@
 ﻿using GUI.DAL;
 using GUI.Modelo;
+using GUI.BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
