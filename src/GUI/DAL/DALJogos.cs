@@ -69,7 +69,13 @@ namespace GUI.DAL
             DataTable tabela = new DataTable();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = _conexao.ObterConexao();
-            cmd.CommandText = "SELECT * FROM Jogos WHERE Nome LIKE @valor";
+
+            // Busca simples pelo nome do jogo
+            cmd.CommandText = @"
+                SELECT Id, Nome, Plataforma, Genero, AnoLancamento
+                FROM Jogos
+                WHERE Nome LIKE @valor";
+
             cmd.Parameters.AddWithValue("@valor", "%" + valor + "%");
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
