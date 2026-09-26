@@ -1,4 +1,4 @@
-﻿namespace Modelo
+﻿namespace GameLibrary.Domain
 {
     public class Class1
     {
