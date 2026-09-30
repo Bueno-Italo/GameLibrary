@@ -11,9 +11,9 @@ namespace GameLibrary.Domain.Entities
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public string Description { get; set; } = "Descrição padrão";
+        public string? Description { get;  private set; }
         public GameType Type { get; private set; }
-        public DateOnly? ReleaseDate { get; set; }
+        public DateOnly? ReleaseDate { get; private set; }
         public int PlatformId { get; private set; }
 
         public Game(string name, int platformId, GameType type)
