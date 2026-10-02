@@ -16,6 +16,8 @@ namespace GameLibrary.Domain.Entities
         public DateOnly? ReleaseDate { get; private set; }
         public int PlatformId { get; private set; }
 
+        public Platform Platform { get; private set; }
+
         public Game(string name, int platformId, GameType type)
         {
             ValidateNameGame(name);
