@@ -8,8 +8,7 @@ namespace GameLibrary.Domain.Entities
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
-        public List<Game> Games { get; private set; }
-
+        public List<Game> Games { get; private set; } = [];
         public Platform(string name)
         {
             ValidateName(name);
