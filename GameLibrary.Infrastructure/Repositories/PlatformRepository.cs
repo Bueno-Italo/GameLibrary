@@ -16,9 +16,9 @@ namespace GameLibrary.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task<List<Platform>> GetAllAsync()
+        public async Task<List<Platform>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Platforms.ToListAsync();
         }
     }
 }
