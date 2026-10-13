@@ -16,6 +16,13 @@ namespace GameLibrary.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<Platform> AddAsync(Platform platform)
+        {
+            _context.Platforms.Add(platform);
+            await _context.SaveChangesAsync();
+            return platform;
+        }
+
         public async Task<List<Platform>> GetAllAsync()
         {
             return await _context.Platforms.ToListAsync();

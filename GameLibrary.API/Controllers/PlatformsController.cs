@@ -20,5 +20,11 @@ namespace GameLibrary.API.Controllers
             var platforms = await _platformService.GetAllPlatformsAsync();
             return Ok(platforms);
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreatePlatfom()
+        //{
+
+        //}
     }
 }
