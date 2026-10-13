@@ -1,5 +1,6 @@
 
 using GameLibrary.Application.Interfaces;
+using GameLibrary.Application.Services;
 using GameLibrary.Infrastructure.Data;
 using GameLibrary.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<GameLibraryDbContext>(options =>
 });
 
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
+
+builder.Services.AddScoped<IPlatformService, PlatformService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
