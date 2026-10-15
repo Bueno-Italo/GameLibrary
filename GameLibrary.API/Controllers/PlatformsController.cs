@@ -28,7 +28,7 @@ namespace GameLibrary.API.Controllers
         {
             var platform = new Platform(createPlatformRequest.Name);
             var createdPlatform = await _platformService.AddPlatformAsync(platform);
-            return Ok(new { message = "Plataforma criada com sucesso." });
+            return StatusCode(201, createdPlatform);
         }
     }
 }
