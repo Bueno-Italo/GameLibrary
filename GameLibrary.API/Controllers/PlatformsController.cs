@@ -1,4 +1,6 @@
-﻿using GameLibrary.Application.Interfaces;
+﻿using GameLibrary.API.DTOs;
+using GameLibrary.Application.Interfaces;
+using GameLibrary.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameLibrary.API.Controllers
@@ -21,10 +23,12 @@ namespace GameLibrary.API.Controllers
             return Ok(platforms);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreatePlatfom()
-        //{
-
-        //}
+        [HttpPost]
+        public async Task<IActionResult> AddPlatformAsync([FromBody] CreatePlatformRequest createPlatformRequest)
+        {
+            var platform = new Platform(createPlatformRequest.Name);
+            var createdPlatform = await _platformService.AddPlatformAsync(platform);
+            return Ok(new { message = "Plataforma criada com sucesso." });
+        }
     }
 }
