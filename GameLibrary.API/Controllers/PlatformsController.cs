@@ -1,4 +1,6 @@
-﻿using GameLibrary.Application.Interfaces;
+﻿using GameLibrary.API.DTOs;
+using GameLibrary.Application.Interfaces;
+using GameLibrary.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameLibrary.API.Controllers
@@ -19,6 +21,16 @@ namespace GameLibrary.API.Controllers
         {
             var platforms = await _platformService.GetAllPlatformsAsync();
             return Ok(platforms);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(Platform), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> AddPlatformAsync([FromBody] CreatePlatformRequest createPlatformRequest)
+        {
+            var platform = new Platform(createPlatformRequest.Name);
+            var createdPlatform = await _platformService.AddPlatformAsync(platform);
+            return StatusCode(StatusCodes.Status201Created, createdPlatform);
         }
     }
 }

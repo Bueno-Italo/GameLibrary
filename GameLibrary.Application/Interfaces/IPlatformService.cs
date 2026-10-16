@@ -8,5 +8,6 @@ namespace GameLibrary.Application.Interfaces
     public interface IPlatformService
     {
         Task<List<Platform>> GetAllPlatformsAsync();
+        Task<Platform> AddPlatformAsync(Platform platform);
     }
 }

@@ -15,6 +15,11 @@ namespace GameLibrary.Application.Services
             _platformRepository = platformRepository;
         }
 
+        public Task<Platform> AddPlatformAsync(Platform platform)
+        {
+            return _platformRepository.AddAsync(platform);
+        }
+
         public async Task<List<Platform>> GetAllPlatformsAsync()
         {
             return await _platformRepository.GetAllAsync();
