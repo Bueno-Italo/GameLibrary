@@ -24,11 +24,13 @@ namespace GameLibrary.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(Platform), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddPlatformAsync([FromBody] CreatePlatformRequest createPlatformRequest)
         {
             var platform = new Platform(createPlatformRequest.Name);
             var createdPlatform = await _platformService.AddPlatformAsync(platform);
-            return StatusCode(201, createdPlatform);
+            return StatusCode(StatusCodes.Status201Created, createdPlatform);
         }
     }
 }
