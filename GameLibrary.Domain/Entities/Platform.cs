@@ -23,5 +23,11 @@ namespace GameLibrary.Domain.Entities
                 throw new ArgumentException("O nome da Plataforma não pode ser nulo ou vazio.");
             }
         }
+
+        public void UpdateName(string name)
+        {
+            ValidateName(name);
+            Name = name;
+        }
     }
 }

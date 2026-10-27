@@ -11,9 +11,9 @@ namespace GameLibrary.Application.Interfaces
     /// </summary>
     public interface IPlatformRepository
     {
-        //GetByIdAsync
         Task<Platform?> GetByIdAsync(int id);
         Task<List<Platform>> GetAllAsync();
         Task<Platform> AddAsync(Platform platform);
+        Task<Platform> UpdateAsync(Platform platform);
     }
 }
