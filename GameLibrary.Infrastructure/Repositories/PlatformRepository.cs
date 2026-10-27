@@ -35,15 +35,9 @@ namespace GameLibrary.Infrastructure.Repositories
 
         public async Task<Platform> UpdateAsync(Platform platform)
         {
-            var existingPlatform = await _context.Platforms.FirstOrDefaultAsync(p => p.Id == platform.Id);
-            if (existingPlatform == null)
-            {
-                throw new Exception($"Plataforma {platform.Id} não encontrada.");
-            }
 
-            existingPlatform.UpdateName(platform.Name);
             await _context.SaveChangesAsync();
-            return existingPlatform;
+            return platform;
         }
     }
 }

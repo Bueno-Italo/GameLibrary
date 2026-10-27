@@ -30,5 +30,10 @@ namespace GameLibrary.Application.Services
            return await _platformRepository.GetByIdAsync(id);
 
         }
+
+        public async Task<Platform> UpdatePlatformAsync(Platform platform)
+        {
+            return await _platformRepository.UpdateAsync(platform);
+        }
     }
 }
