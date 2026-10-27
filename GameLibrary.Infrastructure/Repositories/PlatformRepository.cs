@@ -27,5 +27,10 @@ namespace GameLibrary.Infrastructure.Repositories
         {
             return await _context.Platforms.ToListAsync();
         }
+
+        public async Task<Platform?> GetByIdAsync(int id)
+        {
+            return await _context.Platforms.Where(p => p.Id == id).FirstOrDefaultAsync();
+        }
     }
 }
