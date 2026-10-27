@@ -32,5 +32,18 @@ namespace GameLibrary.API.Controllers
             var createdPlatform = await _platformService.AddPlatformAsync(platform);
             return StatusCode(StatusCodes.Status201Created, createdPlatform);
         }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(Platform), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetPlatformById(int id)
+        {
+            var platform = await _platformService.GetPlatformByIdAsync(id);
+            if (platform == null)
+            {
+                return NotFound("Plataforma não encontrada");
+            }
+            return Ok(platform);
+        }
     }
 }
