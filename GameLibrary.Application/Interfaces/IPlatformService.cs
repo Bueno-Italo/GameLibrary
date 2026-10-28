@@ -11,5 +11,6 @@ namespace GameLibrary.Application.Interfaces
         Task<Platform> AddPlatformAsync(Platform platform);
         Task<Platform?> GetPlatformByIdAsync(int id);
         Task<Platform> UpdatePlatformAsync(Platform platform);
+        Task<bool> DeletePlatformAsync(int id);
     }
 }

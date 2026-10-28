@@ -61,5 +61,17 @@ namespace GameLibrary.API.Controllers
             var updatedPlatform = await _platformService.UpdatePlatformAsync(platform);
             return Ok(updatedPlatform);
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeletePlatform(int id)
+        {
+            var deleted = await _platformService.DeletePlatformAsync(id);
+            if (!deleted)
+                return NotFound("Plataforma não encontrada");
+            
+            return NoContent();
+        }
     }
 }

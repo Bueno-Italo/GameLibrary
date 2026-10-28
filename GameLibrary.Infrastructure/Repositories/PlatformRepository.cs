@@ -23,6 +23,17 @@ namespace GameLibrary.Infrastructure.Repositories
             return platform;
         }
 
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var platform = await _context.Platforms.Where(p => p.Id == id).FirstOrDefaultAsync();
+            if (platform == null)
+                return false;
+
+            _context.Platforms.Remove(platform);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<List<Platform>> GetAllAsync()
         {
             return await _context.Platforms.ToListAsync();
@@ -35,7 +46,6 @@ namespace GameLibrary.Infrastructure.Repositories
 
         public async Task<Platform> UpdateAsync(Platform platform)
         {
-
             await _context.SaveChangesAsync();
             return platform;
         }
