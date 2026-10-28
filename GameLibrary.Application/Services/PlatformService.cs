@@ -20,6 +20,11 @@ namespace GameLibrary.Application.Services
             return _platformRepository.AddAsync(platform);
         }
 
+        public async Task<bool> DeletePlatformAsync(int id)
+        {
+            return await _platformRepository.DeleteAsync(id);
+        }
+
         public async Task<List<Platform>> GetAllPlatformsAsync()
         {
             return await _platformRepository.GetAllAsync();
