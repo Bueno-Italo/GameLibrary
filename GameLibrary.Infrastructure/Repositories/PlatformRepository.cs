@@ -32,5 +32,12 @@ namespace GameLibrary.Infrastructure.Repositories
         {
             return await _context.Platforms.Where(p => p.Id == id).FirstOrDefaultAsync();
         }
+
+        public async Task<Platform> UpdateAsync(Platform platform)
+        {
+
+            await _context.SaveChangesAsync();
+            return platform;
+        }
     }
 }
