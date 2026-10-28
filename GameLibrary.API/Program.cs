@@ -4,6 +4,7 @@ using GameLibrary.Application.Services;
 using GameLibrary.Infrastructure.Data;
 using GameLibrary.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,14 @@ builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 
 builder.Services.AddScoped<IPlatformService, PlatformService>();
 
-builder.Services.AddControllers();
+builder.Services.AddScoped<IGameRepository, GameRepository>();
+
+builder.Services.AddScoped<IGameService, GameService>();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 builder.Services.AddSwaggerGen();
