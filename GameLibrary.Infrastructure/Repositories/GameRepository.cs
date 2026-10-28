@@ -18,7 +18,8 @@ namespace GameLibrary.Infrastructure.Repositories
 
         public async Task<List<Game>> GetAllGamesAsync()
         {
-            return await _context.Games.ToListAsync();
+            var games = _context.Games.Include(g => g.Platform);
+            return await games.ToListAsync();
         }
     }
 }
