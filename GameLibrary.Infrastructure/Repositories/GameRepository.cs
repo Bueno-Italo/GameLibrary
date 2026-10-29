@@ -21,5 +21,10 @@ namespace GameLibrary.Infrastructure.Repositories
             var games = _context.Games.Include(g => g.Platform);
             return await games.ToListAsync();
         }
+
+        public async Task<Game?> GetByIdAsync(int id)
+        {
+            return await _context.Games.Include(g => g.Platform).FirstOrDefaultAsync(g => g.Id == id);
+        }
     }
 }
