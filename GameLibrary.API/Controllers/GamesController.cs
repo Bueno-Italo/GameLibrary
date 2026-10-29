@@ -1,4 +1,5 @@
 ﻿using GameLibrary.Application.Interfaces;
+using GameLibrary.Application.Services;
 using GameLibrary.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,11 @@ namespace GameLibrary.API.Controllers
     public class GamesController : ControllerBase
     {
         private readonly IGameService _gameService;
-        public GamesController(IGameService gameService)
+        private readonly IPlatformService _platformService;
+        public GamesController(IGameService gameService, IPlatformService platformService)
         {
             _gameService = gameService;
+            _platformService = platformService;
         }
 
         [HttpGet]
@@ -49,6 +52,39 @@ namespace GameLibrary.API.Controllers
                 Type = game.Type,
                 ReleaseDate = game.ReleaseDate,
                 PlatformName = game.Platform.Name
+            });
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(DTOs.GameResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> CreateGame(DTOs.CreateGameRequest gameRequest)
+        {
+            var platform = await _platformService.GetPlatformByIdAsync(gameRequest.PlatformId);
+            if (platform == null)
+                return NotFound("Plataforma não encontrada");
+
+            var game = new Game(
+                gameRequest.Name,
+                gameRequest.PlatformId,
+                gameRequest.Type,
+                gameRequest.Description,
+                gameRequest.ReleaseDate
+                );
+
+            var createdGame = await _gameService.AddGameAsync(game);
+            return CreatedAtAction(nameof(GetGameById), new
+            {
+                id = createdGame.Id
+            }, new DTOs.GameResponse
+            {
+                Id = createdGame.Id,
+                Name = createdGame.Name,
+                Type = createdGame.Type,
+                ReleaseDate = createdGame.ReleaseDate,
+                PlatformName = platform.Name
             });
         }
     }

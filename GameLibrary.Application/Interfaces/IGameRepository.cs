@@ -9,5 +9,6 @@ namespace GameLibrary.Application.Interfaces
     {
         Task<List<Game>> GetAllGamesAsync();
         Task<Game?> GetByIdAsync(int id);
+        Task<Game> AddGameAsync(Game game);
     }
 }

@@ -14,6 +14,11 @@ namespace GameLibrary.Application.Services
             _gameRepository = gameRepository;
         }
 
+        public async Task<Game> AddGameAsync(Game game)
+        {
+            return await _gameRepository.AddGameAsync(game);
+        }
+
         public async Task<List<Game>> GetAllGamesAsync()
         {
             return await _gameRepository.GetAllGamesAsync();
