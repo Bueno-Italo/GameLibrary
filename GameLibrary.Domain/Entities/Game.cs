@@ -18,13 +18,15 @@ namespace GameLibrary.Domain.Entities
 
         public Platform Platform { get; private set; }
 
-        public Game(string name, int platformId, GameType type)
+        public Game(string name, int platformId, GameType type, string? description = null, DateOnly? releaseDate = null)
         {
             ValidateNameGame(name);
             ValidatePlatformId(platformId);
             Name = name;
+            Description = description;
             PlatformId = platformId;
             Type = type;
+            ReleaseDate = releaseDate;
         }
         private void ValidateNameGame(string name)
         {
