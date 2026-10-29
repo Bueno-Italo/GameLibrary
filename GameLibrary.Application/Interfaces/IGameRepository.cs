@@ -8,5 +8,6 @@ namespace GameLibrary.Application.Interfaces
     public interface IGameRepository
     {
         Task<List<Game>> GetAllGamesAsync();
+        Task<Game?> GetByIdAsync(int id);
     }
 }

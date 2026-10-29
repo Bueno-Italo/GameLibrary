@@ -18,5 +18,10 @@ namespace GameLibrary.Application.Services
         {
             return await _gameRepository.GetAllGamesAsync();
         }
+
+        public async Task<Game?> GetByIdAsync(int id)
+        {
+            return await _gameRepository.GetByIdAsync(id);
+        }
     }
 }
