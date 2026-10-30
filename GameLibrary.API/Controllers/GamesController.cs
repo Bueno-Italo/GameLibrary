@@ -1,4 +1,5 @@
-﻿using GameLibrary.Application.Interfaces;
+﻿using GameLibrary.API.DTOs;
+using GameLibrary.Application.Interfaces;
 using GameLibrary.Application.Services;
 using GameLibrary.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,9 @@ namespace GameLibrary.API.Controllers
     public class GamesController : ControllerBase
     {
         private readonly IGameService _gameService;
-        private readonly IPlatformService _platformService;
-        public GamesController(IGameService gameService, IPlatformService platformService)
+        public GamesController(IGameService gameService)
         {
             _gameService = gameService;
-            _platformService = platformService;
         }
 
         [HttpGet]
@@ -62,10 +61,6 @@ namespace GameLibrary.API.Controllers
 
         public async Task<IActionResult> CreateGame(DTOs.CreateGameRequest gameRequest)
         {
-            var platform = await _platformService.GetPlatformByIdAsync(gameRequest.PlatformId);
-            if (platform == null)
-                return NotFound("Plataforma não encontrada");
-
             var game = new Game(
                 gameRequest.Name,
                 gameRequest.PlatformId,
@@ -75,6 +70,17 @@ namespace GameLibrary.API.Controllers
                 );
 
             var createdGame = await _gameService.AddGameAsync(game);
+            if(createdGame == null)
+            {
+                return NotFound("Plataforma não encontrada");
+            }
+            var gameWithPlatform = await _gameService.GetByIdAsync(createdGame.Id);
+
+            if(gameWithPlatform == null)
+            {
+                return NotFound("Jogo não encontrado após a criação");
+            }   
+
             return CreatedAtAction(nameof(GetGameById), new
             {
                 id = createdGame.Id
@@ -84,8 +90,30 @@ namespace GameLibrary.API.Controllers
                 Name = createdGame.Name,
                 Type = createdGame.Type,
                 ReleaseDate = createdGame.ReleaseDate,
-                PlatformName = platform.Name
+                PlatformName = gameWithPlatform.Platform.Name
             });
+        }
+
+        [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> UpdateGame(int id, DTOs.UpdateGameRequest updateGameRequest)
+        {
+            var updated = await _gameService.UpdateGameAsync(
+                id,
+                updateGameRequest.Name,
+                updateGameRequest.PlatformId,
+                updateGameRequest.Type,
+                updateGameRequest.Description,
+                updateGameRequest.ReleaseDate);
+
+            if (!updated)
+            {
+                return NotFound("Jogo ou plataforma não encontrado");
+            }
+            return Ok();
         }
     }
 }

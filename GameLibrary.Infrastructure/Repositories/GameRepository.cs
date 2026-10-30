@@ -33,5 +33,10 @@ namespace GameLibrary.Infrastructure.Repositories
         {
             return await _context.Games.Include(g => g.Platform).FirstOrDefaultAsync(g => g.Id == id);
         }
+
+        public Task UpdateGameAsync(Game game)
+        {
+            return _context.SaveChangesAsync();
+        }
     }
 }
