@@ -42,5 +42,16 @@ namespace GameLibrary.Domain.Entities
                 throw new ArgumentException("O ID da Plataforma não pode ser nulo ou inválido.");
             }
         }
+
+        public void Update(string name, int platformId, GameType type, string? description = null, DateOnly? releaseDate = null)
+        {
+            ValidateNameGame(name);
+            ValidatePlatformId(platformId);
+            Name = name;
+            Description = description;
+            PlatformId = platformId;
+            Type = type;
+            ReleaseDate = releaseDate;
+        }
     }
 }
