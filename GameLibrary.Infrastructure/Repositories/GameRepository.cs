@@ -23,6 +23,17 @@ namespace GameLibrary.Infrastructure.Repositories
             return game;
         }
 
+        public async Task<bool> DeleteGameAsync(int id)
+        {
+            var game = await GetByIdAsync(id);
+            if (game == null)
+                return false;
+
+            _context.Games.Remove(game);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<List<Game>> GetAllGamesAsync()
         {
             var games = _context.Games.Include(g => g.Platform);

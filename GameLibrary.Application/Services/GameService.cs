@@ -27,6 +27,11 @@ namespace GameLibrary.Application.Services
             return await _gameRepository.AddGameAsync(game);
         }
 
+        public async Task<bool> DeleteGameAsync(int id)
+        {
+            return await _gameRepository.DeleteGameAsync(id);
+        }
+
         public async Task<List<Game>> GetAllGamesAsync()
         {
             return await _gameRepository.GetAllGamesAsync();

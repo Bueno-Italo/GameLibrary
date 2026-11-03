@@ -18,5 +18,6 @@ namespace GameLibrary.Application.Interfaces
             GameType type,
             string? description,
             DateOnly? releaseDate);
+        Task<bool> DeleteGameAsync(int id);
     }
 }

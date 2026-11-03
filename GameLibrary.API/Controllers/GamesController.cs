@@ -115,5 +115,18 @@ namespace GameLibrary.API.Controllers
             }
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteGame(int id)
+        {
+            var deleted = await _gameService.DeleteGameAsync(id);
+            if (!deleted)
+            {
+                return NotFound("Jogo não encontrado");
+            }
+            return Ok();
+        }
     }
 }
