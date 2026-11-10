@@ -37,7 +37,8 @@ namespace GameLibrary.Infrastructure.Configurations
 
             builder.HasOne(g => g.Platform)
                 .WithMany(p => p.Games)
-                .HasForeignKey(g=> g.PlatformId);
+                .HasForeignKey(g=> g.PlatformId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

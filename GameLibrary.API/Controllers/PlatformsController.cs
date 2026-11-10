@@ -2,6 +2,7 @@
 using GameLibrary.Application.Interfaces;
 using GameLibrary.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using GameLibrary.Application.Enums;
 
 namespace GameLibrary.API.Controllers
 {
@@ -65,13 +66,17 @@ namespace GameLibrary.API.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> DeletePlatform(int id)
         {
-            var deleted = await _platformService.DeletePlatformAsync(id);
-            if (!deleted)
-                return NotFound("Plataforma não encontrada");
-            
-            return NoContent();
+            var result = await _platformService.DeletePlatformAsync(id);
+
+            return result switch
+            {
+                PlatformDeletionResult.Deleted => NoContent(),
+                PlatformDeletionResult.NotFound => NotFound("Plataforma não encontrada"),
+                PlatformDeletionResult.HasLinkedGames => Conflict("Não é possível excluir a plataforma, pois existem jogos vinculados a ela"),
+            };
         }
     }
 }

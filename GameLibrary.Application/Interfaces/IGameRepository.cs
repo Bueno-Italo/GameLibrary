@@ -13,5 +13,6 @@ namespace GameLibrary.Application.Interfaces
         Task<Game> AddGameAsync(Game game);
         Task UpdateGameAsync(Game game);
         Task<bool> DeleteGameAsync(int id);
+        Task<bool> ExistsByPlatformIdAsync(int platformId);
     }
 }

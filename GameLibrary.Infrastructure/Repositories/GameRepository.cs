@@ -34,6 +34,11 @@ namespace GameLibrary.Infrastructure.Repositories
             return true;
         }
 
+        public async Task<bool> ExistsByPlatformIdAsync(int platformId)
+        {
+            return await _context.Games.AnyAsync(g => g.PlatformId == platformId);
+        }
+
         public async Task<List<Game>> GetAllGamesAsync()
         {
             var games = _context.Games.Include(g => g.Platform);

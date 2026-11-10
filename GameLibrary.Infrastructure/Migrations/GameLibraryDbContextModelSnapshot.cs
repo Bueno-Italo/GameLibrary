@@ -78,7 +78,7 @@ namespace GameLibrary.Infrastructure.Migrations
                     b.HasOne("GameLibrary.Domain.Entities.Platform", "Platform")
                         .WithMany("Games")
                         .HasForeignKey("PlatformId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Platform");
