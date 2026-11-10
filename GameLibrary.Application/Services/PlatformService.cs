@@ -1,4 +1,5 @@
-﻿using GameLibrary.Application.Interfaces;
+﻿using GameLibrary.Application.Enums;
+using GameLibrary.Application.Interfaces;
 using GameLibrary.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ namespace GameLibrary.Application.Services
     public class PlatformService : IPlatformService
     {
         private readonly IPlatformRepository _platformRepository;
+        private readonly IGameRepository _gameRepository;
 
-        public PlatformService(IPlatformRepository platformRepository)
+        public PlatformService(IPlatformRepository platformRepository, IGameRepository gameRepository)
         {
             _platformRepository = platformRepository;
+            _gameRepository = gameRepository;
         }
 
         public Task<Platform> AddPlatformAsync(Platform platform)
@@ -20,9 +23,24 @@ namespace GameLibrary.Application.Services
             return _platformRepository.AddAsync(platform);
         }
 
-        public async Task<bool> DeletePlatformAsync(int id)
+        public async Task<PlatformDeletionResult> DeletePlatformAsync(int id)
         {
-            return await _platformRepository.DeleteAsync(id);
+            var platform = await _platformRepository.GetByIdAsync(id);
+            if(platform == null)
+            {
+                return PlatformDeletionResult.NotFound;
+            }
+
+            var gamesUsingPlatform = await _gameRepository.ExistsByPlatformIdAsync(id);
+            if(gamesUsingPlatform)
+            {
+                return PlatformDeletionResult.HasLinkedGames;
+            }
+
+             await _platformRepository.DeleteAsync(id);
+
+            return PlatformDeletionResult.Deleted;
+
         }
 
         public async Task<List<Platform>> GetAllPlatformsAsync()
@@ -40,5 +58,10 @@ namespace GameLibrary.Application.Services
         {
             return await _platformRepository.UpdateAsync(platform);
         }
+
+        //Task<PlatformDeletionResult> IPlatformService.DeletePlatformAsync(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

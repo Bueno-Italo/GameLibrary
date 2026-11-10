@@ -1,4 +1,5 @@
-﻿using GameLibrary.Domain.Entities;
+﻿using GameLibrary.Application.Enums;
+using GameLibrary.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,6 @@ namespace GameLibrary.Application.Interfaces
         Task<Platform> AddPlatformAsync(Platform platform);
         Task<Platform?> GetPlatformByIdAsync(int id);
         Task<Platform> UpdatePlatformAsync(Platform platform);
-        Task<bool> DeletePlatformAsync(int id);
+        Task<PlatformDeletionResult> DeletePlatformAsync(int id);
     }
 }
